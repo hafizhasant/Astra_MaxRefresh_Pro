@@ -402,7 +402,7 @@ class AstraEngine {
         }
         const lines = this.rates.map(r => `${r.id}:${r.w}:${r.h}:${r.fps}:${r.type}:${r.base ? '1' : '0'}:${r.ord || 0}`);
         const res = await this.writeFile(`${this.mod}/rates.conf`, `${lines.join('\n')}`);
-        if (res.errno !== 0) { this.toastErr('保存', res); return; }
+        if (res.errno !== 0) { this.toastErr('Save', res); return; }
         await this.sync();
         this.updInfo();
         this.drawSelector();
@@ -418,7 +418,7 @@ class AstraEngine {
         this.conf.rateId = id;
         const obj = { globalRateId: id, appSwitchEnabled: this.conf.appSw, appSwitchInterval: this.conf.appIntv };
         const res = await this.writeFile(`${this.mod}/config.json`, JSON.stringify(obj));
-        if (res.errno !== 0) { this.toastErr('保存', res); return; }
+        if (res.errno !== 0) { this.toastErr('Save', res); return; }
         await this.sync();
         const r = this.rates.find(x => x.id === id);
         await this.apply(id);
@@ -505,7 +505,7 @@ class AstraEngine {
     async saveApps() {
         const c = this.apps.map(x => `${x.pkg}=${x.id}`).join('\n');
         const res = await this.writeFile(`${this.mod}/apps.conf`, c);
-        if (res.errno !== 0) { this.toastErr('保存', res); return; }
+        if (res.errno !== 0) { this.toastErr('Save', res); return; }
         await this.sync();
     }
 
@@ -577,7 +577,7 @@ class AstraEngine {
     drawSettings() {
         const el = document.getElementById('rate-settings-list');
         if (!this.rates.length) {
-            el.innerHTML = '<div class="empty-state">请先执行「全量扫描」<br>扫描你设备支持的刷新率档位</div>';
+            el.innerHTML = '<div class="empty-state">Please run "Full Scan" first<br>Scans the refresh rate tiers supported by your device</div>';
             return;
         }
         el.innerHTML = this.rates.map((r, i) => `
@@ -716,7 +716,7 @@ class AstraEngine {
         this.conf.appIntv = interval;
         const obj = { globalRateId: this.conf.rateId, appSwitchEnabled: this.conf.appSw, appSwitchInterval: this.conf.appIntv };
         const res = await this.writeFile(`${this.mod}/config.json`, JSON.stringify(obj));
-        if (res.errno !== 0) { this.toastErr('保存', res); return; }
+        if (res.errno !== 0) { this.toastErr('Save', res); return; }
         await this.sync();
         this.vibrate(15);
         this.toast('Per-app switch settings saved');

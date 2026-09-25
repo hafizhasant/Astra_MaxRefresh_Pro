@@ -137,7 +137,7 @@ waitkey() {
 ui_print "============================================="
 ui_print "- Install notes (must read)"
 ui_print " "
-ui_print "  1) 极速高刷Pro不支持除欧加真以外的机型，当你修改机型校验逻辑强行刷入后，遇到的BUG请勿向我反馈"
+ui_print "  1) Turbo High Refresh Pro does not support devices other than Oplus. If you bypass the model check to force-flash it, do not report any bugs you encounter to me."
 ui_print "  2) On Alpha and its forks, grant root to \"System UI\" and \"System Launcher\""
 ui_print "  3) On KernelSU and its forks, disable the \"Default unmount modules\" option"
 ui_print "  4) Do not enable together with other refresh-rate / VRR / LTPO modules"
