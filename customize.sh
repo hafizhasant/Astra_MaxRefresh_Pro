@@ -44,7 +44,6 @@ fi
 
 ui_print "============================================="
 ui_print " $mod_name $mod_ver"
-ui_print " Author: Coolapk @MuYuanXing"
 ui_print "============================================="
 
 GP="/system/bin/getprop"
@@ -217,22 +216,7 @@ sleep 1
 
 ui_print "============================================="
 ui_print "- Checks complete. Environment is safe."
-ui_print "- Would you follow me on Coolapk? 🥹🥹🥹"
-ui_print "  (Author: MuYuanXing / ID: 28719807)"
-ui_print " "
-ui_print "  [Vol Up] : Sure (follow and install) 🥰"
-ui_print "  [Vol Down] : No (install directly) 😤"
-ui_print "============================================="
 
-jump="false"
-key=$(waitkey)
-
-if [ "$key" = "up" ]; then
-    jump="true"
-    ui_print "- Thanks for following! ✋😭✋"
-else
-    ui_print "- Not following me ✋😭✋"
-fi
 
 if [ "$ltpo" = "keep" ]; then
     desc="Provides turbo high refresh for ${market} (${model}). LTPO status: ${ltpo_s}. Configure on first flash. In Keep-LTPO mode: the global tier has no effect; only per-app rules switch. On the Apps page, enter the target app package name and the refresh rate tier ID to assign a dedicated refresh rate per app, applied in real time."
@@ -250,13 +234,6 @@ fi
 sleep 1
 ui_print "- Module properties file updated"
 
-if [ "$jump" = "true" ]; then
-    boot=$("$GP" sys.boot_completed)
-    if [ "$boot" = "1" ]; then
-        sleep 1
-        am start -a android.intent.action.VIEW -d "http://www.coolapk.com/u/28719807" >/dev/null 2>&1
-    fi
-fi
 
 ui_print "============================================="
 ui_print "✅ Installation complete!"
