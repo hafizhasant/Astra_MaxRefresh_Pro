@@ -4,7 +4,6 @@
 >
 >   1. Before doing anything, make sure you are capable of recovering from a brick.
 >   2. Upgrading from the old version (Astra Engine): uninstall the old module first, then flash this one. They are different modules and their configs are not shared.
->   3. For any questions, join the QQ group: 979221822.
 >
 
 ## Introduction
