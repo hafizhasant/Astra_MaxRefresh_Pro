@@ -254,7 +254,6 @@ if [ "$jump" = "true" ]; then
     boot=$("$GP" sys.boot_completed)
     if [ "$boot" = "1" ]; then
         sleep 1
-        ui_print "- Opening Coolapk..."
         am start -a android.intent.action.VIEW -d "http://www.coolapk.com/u/28719807" >/dev/null 2>&1
     fi
 fi
